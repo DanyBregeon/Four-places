@@ -508,11 +508,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\Four-places\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.csproj",
       "projectName": "Fourplaces",
-      "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.csproj",
+      "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\Four-places\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\Four-places\\Fourplaces\\Fourplaces\\Fourplaces\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

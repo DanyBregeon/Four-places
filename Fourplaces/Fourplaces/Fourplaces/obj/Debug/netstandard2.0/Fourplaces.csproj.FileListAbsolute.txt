@@ -24,3 +24,16 @@ C:\Users\Admin\Documents\GitHub\Fourplaces\Fourplaces\Fourplaces\Fourplaces\obj\
 C:\Users\Admin\Documents\GitHub\Fourplaces\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Admin\Documents\GitHub\Fourplaces\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Fourplaces.dll
 C:\Users\Admin\Documents\GitHub\Fourplaces\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Fourplaces.pdb
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\bin\Debug\netstandard2.0\Fourplaces.deps.json
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\bin\Debug\netstandard2.0\Fourplaces.dll
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\bin\Debug\netstandard2.0\Fourplaces.pdb
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Fourplaces.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Views\DetailsPage.xaml.g.cs
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Fourplaces.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Fourplaces.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Fourplaces.AssemblyInfo.cs
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Fourplaces.dll
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Fourplaces.pdb

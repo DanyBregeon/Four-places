@@ -1180,11 +1180,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.Android\\Fourplaces.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\Four-places\\Fourplaces\\Fourplaces\\Fourplaces.Android\\Fourplaces.Android.csproj",
       "projectName": "Fourplaces.Android",
-      "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.Android\\Fourplaces.Android.csproj",
+      "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\Four-places\\Fourplaces\\Fourplaces\\Fourplaces.Android\\Fourplaces.Android.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.Android\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\Four-places\\Fourplaces\\Fourplaces\\Fourplaces.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1201,8 +1201,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\Admin\\Documents\\GitHub\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.csproj"
+            "C:\\Users\\Admin\\Documents\\GitHub\\Four-places\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\Four-places\\Fourplaces\\Fourplaces\\Fourplaces\\Fourplaces.csproj"
             }
           }
         }

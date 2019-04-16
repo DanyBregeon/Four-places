@@ -20,7 +20,7 @@
         </ListView.ItemTemplate>
     </ListView>-->
 
-    <ListView ItemsSource="{Binding ListPISummary}"
+    <ListView ItemsSource="{Binding ListPlaceSummary}"
                   HasUnevenRows="true"
                   SelectedItem="{Binding PlaceSummary}">
 
