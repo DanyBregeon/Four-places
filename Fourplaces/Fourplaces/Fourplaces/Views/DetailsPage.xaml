@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+             x:Class="Fourplaces.Views.DetailsPage">
+
+    <StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="{Binding ImagePlace}" WidthRequest="200" HeightRequest="200"/>
+                <Label Text="{Binding Place.Title}"/>
+                <Label Text="{Binding Place.Description}"/>
+                <Label Text="{Binding Place.Latitude, StringFormat='latitude:{0}'}"/>
+                <Label Text="{Binding Place.Longitude, StringFormat='Longitude:{0}'}"/>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout>
+            <ContentView Content="{Binding Map}"/>
+        </StackLayout>
+    </StackLayout>
+
+</mvvm:BaseContentPage>

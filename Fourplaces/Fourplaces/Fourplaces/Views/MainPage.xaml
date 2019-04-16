@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvm:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fourplaces.Views.MainPage"
+             xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+             x:Name="mainpage">
+
+    <!--<ListView ItemsSource="{Binding TaskItems}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="8">
+
+                        <Label Text="{Binding Nom}"
+                           FontAttributes="Bold" />
+
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
+
+    <ListView ItemsSource="{Binding ListPISummary}"
+                  HasUnevenRows="true"
+                  SelectedItem="{Binding PlaceSummary}">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="{Binding SourceImage}" WidthRequest="80" HeightRequest="80"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding Title, StringFormat='titles:{0}'}"/>
+                            <Label Text="{Binding Description  , StringFormat='description:{0}'}" LineBreakMode="TailTruncation" MaxLines="3"/>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</mvvm:BaseContentPage>    
+    
+    
+<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Fourplaces"
+             x:Class="Fourplaces.Views.MainPage">
+
+    <ListView ItemsSource="{Binding TaskItems}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="8">
+
+                        <Label Text="{Binding Nom}"
+                           FontAttributes="Bold" />
+
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>-->
