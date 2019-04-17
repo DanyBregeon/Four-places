@@ -26,20 +26,16 @@ namespace Fourplaces.ViewModels
 
         public PlaceItemSummary PlaceSummary
         {
-
             get
             {
                 Console.WriteLine("GETPISS:" + (placeSummary != null));
                 return placeSummary;
             }
-
             set
             {
-
                 SetProperty(ref placeSummary, value);
                 ItemTapped();
             }
-
         }
 
         public ObservableCollection<ItemModel> TaskItems
@@ -57,16 +53,56 @@ namespace Fourplaces.ViewModels
 
         public List<PlaceItemSummary> ListPlaceSummary
         {
-
             get
             {
-
-                Console.WriteLine("GETLPIS:" + (listPlaceSummary != null));
                 return listPlaceSummary;
             }
+            set
+            {
+                SetProperty(ref listPlaceSummary, value);
+            }
+        }
 
-            set => SetProperty(ref listPlaceSummary, value);
+        public Command Connection
+        {
+            get
+            {
+                return new Command(() => GoToConnection());
+            }
 
+        }
+
+        public Command Registration
+        {
+            get
+            {
+                return new Command(() => GoToRegistration());
+            }
+        }
+
+        public Command MyAccount
+        {
+            get
+            {
+                return new Command(() => GoToMyAccount());
+            }
+
+        }
+
+        async private void GoToConnection()
+        {
+            await NavigationService.PushAsync(new Connection());
+        }
+
+        async private void GoToRegistration()
+        {
+            await NavigationService.PushAsync(new Registration());
+        }
+
+        async private void GoToMyAccount()
+        {
+            //await NavigationService.PushAsync(new MonCompte());
+            await NavigationService.PushAsync<MyAccount>();
         }
 
         //public DataTemplate Dt { get => dt; set => SetProperty(ref dt, value); }

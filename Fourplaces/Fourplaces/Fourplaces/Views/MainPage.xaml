@@ -20,6 +20,12 @@
         </ListView.ItemTemplate>
     </ListView>-->
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Connexion" Command="{Binding Connection}"  Order="Primary" Priority="0" />
+        <ToolbarItem Name="Inscription" Command="{Binding Registration}"  Order="Primary" Priority="1" />
+        <ToolbarItem Name="MonCompte" Command="{Binding MyAccount}"  Order="Primary" Priority="2" />
+    </ContentPage.ToolbarItems>
+
     <ListView ItemsSource="{Binding ListPlaceSummary}"
                   HasUnevenRows="true"
                   SelectedItem="{Binding PlaceSummary}">
