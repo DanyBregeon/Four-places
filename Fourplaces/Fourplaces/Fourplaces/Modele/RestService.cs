@@ -2,8 +2,10 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TD.Api.Dtos;
@@ -81,6 +83,48 @@ namespace Fourplaces
                 }
                 return "profilDef.png";
             }
+        }
+
+        public async Task<LoginResult> RegisterDataAsync(String email, String fname, string lname, string password)
+        {
+            var uri = new Uri(string.Format(url + "auth/register", string.Empty));
+
+            Console.WriteLine("Dev_RegisterData:");
+
+            RegisterRequest rr = new RegisterRequest();
+            rr.Email = email;
+            rr.FirstName = fname;
+            rr.LastName = lname;
+            rr.Password = password;
+            var jsonRequest = JsonConvert.SerializeObject(rr);
+
+            var content = new StringContent(jsonRequest, Encoding.UTF8, "text/json");
+            //var response = client.PostAsync(uri, content).Result;
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "__access__token__");
+            request.Content = content;
+            HttpResponseMessage response = await client.SendAsync(request);
+            string result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Dev_RDResponse:" + result);
+                Response<LoginResult> r = JsonConvert.DeserializeObject<Response<LoginResult>>(result);
+                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
+                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
+                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
+                if (r.IsSuccess)
+                {
+
+                    return r.Data;
+                }
+            }
+            else
+            {
+                Debugger.Break();
+            }
+
+            return null;
+
         }
     }
 }
