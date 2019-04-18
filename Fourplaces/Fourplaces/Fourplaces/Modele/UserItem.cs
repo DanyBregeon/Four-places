@@ -1,8 +1,12 @@
+using Fourplaces.Modele;
 using Newtonsoft.Json;
+using Storm.Mvvm;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace TD.Api.Dtos
 {
-    public class UserItem
+    public class UserItem : NotifierBase
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -18,5 +22,27 @@ namespace TD.Api.Dtos
         
         [JsonProperty("image_id")]
         public int? ImageId { get; set; }
+
+        public ImageSource sourceImage;
+        public ImageSource SourceImage
+        {
+            get
+            {
+                Task t = GetImageResource();
+                return sourceImage;
+            }
+            set
+            {
+                SetProperty(ref sourceImage, value);
+            }
+        }
+
+        public async Task GetImageResource()
+        {
+            if (sourceImage == null)
+            {
+                SourceImage = await RestServiceSingleton.SingletonRS.GetRequestImage(ImageId);
+            }
+        }
     }
 }

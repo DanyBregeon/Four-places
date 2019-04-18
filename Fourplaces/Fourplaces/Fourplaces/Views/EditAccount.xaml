@@ -5,8 +5,18 @@
              xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms">
     
   <ContentPage.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentPage.Content>
+        <StackLayout>
+            <Label Text="Editer compte"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Galerie"/>
+                <Switch IsToggled="{Binding Cam}"></Switch>
+                <Label Text="Camera"/>
+            </StackLayout>
+            <ImageButton Source="{Binding Image}" WidthRequest="200" HeightRequest="200" Command="{Binding CmdEditImg}"/>
+            <Entry Text="{Binding User.FirstName}" Placeholder="Prénom"  />
+            <Entry Text="{Binding User.LastName}" Placeholder="Nom"  />
+            <Button Text="modifier" Command="{Binding CmdEdit}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
 </mvvm:BaseContentPage>

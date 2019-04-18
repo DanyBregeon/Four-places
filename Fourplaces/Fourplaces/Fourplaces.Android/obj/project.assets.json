@@ -67,6 +67,21 @@
           "lib/monoandroid71/Plugin.Geolocator.dll": {}
         }
       },
+      "Xam.Plugin.Media/3.1.3": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "2.2.1",
+          "Xamarin.Android.Support.Core.Utils": "25.4.0.2"
+        },
+        "compile": {
+          "lib/MonoAndroid10/Plugin.Media.Abstractions.dll": {},
+          "lib/MonoAndroid10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Plugin.Media.Abstractions.dll": {},
+          "lib/MonoAndroid10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Android.Arch.Core.Common/1.0.0.1": {
         "type": "package",
         "dependencies": {
@@ -504,6 +519,7 @@
           "Newtonsoft.Json": "12.0.1",
           "Storm.Mvvm.Forms": "2.1.0",
           "Xam.Plugin.Geolocator": "4.5.0.6",
+          "Xam.Plugin.Media": "3.1.3",
           "Xamarin.Forms": "3.4.0.1008975",
           "Xamarin.Forms.Maps": "3.4.0.1008975"
         },
@@ -630,6 +646,49 @@
         "readme.txt",
         "xam.plugin.geolocator.4.5.0.6.nupkg.sha512",
         "xam.plugin.geolocator.nuspec"
+      ]
+    },
+    "Xam.Plugin.Media/3.1.3": {
+      "sha512": "SI6m6PKeOZSksNp1j5fnl1ePeuLKQWMOkqy56YhCPtspfyA7N2k4lFi+2iU3TJ2YUfjWpIybTQ/1hdLKGTY6Jw==",
+      "type": "package",
+      "path": "xam.plugin.media/3.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Plugin.Media.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Media.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Media.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Media.dll",
+        "lib/MonoAndroid10/Plugin.Media.pdb",
+        "lib/MonoAndroid10/Plugin.Media.xml",
+        "lib/UAP10/Plugin.Media.Abstractions.dll",
+        "lib/UAP10/Plugin.Media.Abstractions.pdb",
+        "lib/UAP10/Plugin.Media.Abstractions.xml",
+        "lib/UAP10/Plugin.Media.XML",
+        "lib/UAP10/Plugin.Media.dll",
+        "lib/UAP10/Plugin.Media.pdb",
+        "lib/UAP10/Plugin.Media.pri",
+        "lib/Xamarin.iOS10/Plugin.Media.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Media.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Media.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Media.dll",
+        "lib/Xamarin.iOS10/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Media.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Media.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.Media.deps.json",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.pdb",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.Abstractions.dll",
+        "lib/tizen40/Plugin.Media.Abstractions.pdb",
+        "lib/tizen40/Plugin.Media.Abstractions.xml",
+        "lib/tizen40/Plugin.Media.deps.json",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.pdb",
+        "readme.txt",
+        "xam.plugin.media.3.1.3.nupkg.sha512",
+        "xam.plugin.media.nuspec"
       ]
     },
     "Xamarin.Android.Arch.Core.Common/1.0.0.1": {
@@ -1165,6 +1224,7 @@
     "MonoAndroid,Version=v8.1": [
       "Fourplaces >= 1.0.0",
       "Xam.Plugin.Geolocator >= 4.5.0.6",
+      "Xam.Plugin.Media >= 3.1.3",
       "Xamarin.Android.Support.Design >= 27.0.2.1",
       "Xamarin.Android.Support.v4 >= 27.0.2.1",
       "Xamarin.Android.Support.v7.AppCompat >= 27.0.2.1",
@@ -1214,6 +1274,10 @@
           "Xam.Plugin.Geolocator": {
             "target": "Package",
             "version": "[4.5.0.6, )"
+          },
+          "Xam.Plugin.Media": {
+            "target": "Package",
+            "version": "[3.1.3, )"
           },
           "Xamarin.Android.Support.Design": {
             "target": "Package",
