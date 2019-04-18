@@ -6,7 +6,10 @@
     
   <ContentPage.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+            <Label Text="Se connecter"/>
+            <Entry Text="{Binding Login}" Placeholder="login" />
+            <Entry Text="{Binding Password}" Placeholder="password" />
+            <Button Text="OK" Command="{Binding CmdConnection}"/>
+        </StackLayout>
   </ContentPage.Content>
 </mvvm:BaseContentPage>

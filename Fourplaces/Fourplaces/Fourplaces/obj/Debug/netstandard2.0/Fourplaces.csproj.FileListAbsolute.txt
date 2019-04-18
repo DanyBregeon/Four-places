@@ -40,3 +40,5 @@ C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Views\Connection.xaml.g.cs
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Views\MyAccount.xaml.g.cs
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Views\Registration.xaml.g.cs
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Views\EditAccount.xaml.g.cs
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces\obj\Debug\netstandard2.0\Views\PasswordEditAccount.xaml.g.cs

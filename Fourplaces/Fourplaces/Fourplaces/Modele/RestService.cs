@@ -1,4 +1,5 @@
 ﻿using Common.Api.Dtos;
+using Fourplaces.Modele;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -125,6 +126,79 @@ namespace Fourplaces
 
             return null;
 
+        }
+
+        public async Task<LoginResult> ConnectionDataAsync(String login, string password)
+        {
+
+            var uri = new Uri(string.Format(url + "auth/login", string.Empty));
+
+            Console.WriteLine("Dev_ConnexionData:");
+
+            LoginRequest lr = new LoginRequest();
+            lr.Email = login;
+
+            lr.Password = password;
+            var jsonRequest = JsonConvert.SerializeObject(lr);
+
+            var content = new StringContent(jsonRequest, Encoding.UTF8, "text/json");
+            //var response = client.PostAsync(uri, content).Result;
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "__access__token__");
+            request.Content = content;
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            string result = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Dev_CDResponse:" + result);
+                Response<LoginResult> r = JsonConvert.DeserializeObject<Response<LoginResult>>(result);
+                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
+                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
+                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
+                if (r.IsSuccess)
+                {
+                    return r.Data;
+                }
+            }
+            else
+            {
+                Debugger.Break();
+            }
+            return null;
+        }
+
+        public async Task<UserItem> UserDataAsync()
+        {
+            var uri = new Uri(string.Format(url + "me", string.Empty));
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, uri);
+            request.Headers.Authorization = new AuthenticationHeaderValue(LoginResultSingleton.SingletonLR.TokenType, LoginResultSingleton.SingletonLR.AccessToken);
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            string result = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Dev_UDResponse:" + result);
+                Response<UserItem> r = JsonConvert.DeserializeObject<Response<UserItem>>(result);
+                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
+                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
+                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
+
+                if (r.IsSuccess)
+                {
+
+                    return r.Data;
+                }
+            }
+            else
+            {
+                Debugger.Break();
+            }
+            return null;
         }
     }
 }
