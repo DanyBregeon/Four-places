@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.Fourplaces.Android" android:installLocation="auto">
-  <uses-sdk android:minSdkVersion="20" android:targetSdkVersion="27" />
+  <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="27" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
@@ -19,6 +19,9 @@
   <application android:label="Fourplaces.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
     <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyA15ag_Kwb_-IC1x8peOvax0vzQu_ApmJQ" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.companyname.Fourplaces.Android.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+    </provider>
     <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="Fourplaces" android:theme="@style/MainTheme" android:name="md57b95eee5981dbaf6d15947e05546bd34.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

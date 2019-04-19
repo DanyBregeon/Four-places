@@ -393,9 +393,10 @@ namespace Fourplaces
             {
                 var pictureMediaOptions = new StoreCameraMediaOptions
                 {
-                    Directory = "Receipts",
+                    /*DefaultCamera = CameraDevice.Front,
+                    Directory = "Camera",
                     Name = $"{DateTime.UtcNow}.jpg",
-                    PhotoSize = PhotoSize.Small
+                    PhotoSize = PhotoSize.Small*/
                 };
 
                 var galleryMediaOptions = new PickMediaOptions
@@ -406,13 +407,12 @@ namespace Fourplaces
                 MediaFile file;
                 if (camera)
                 {
+                    Console.WriteLine("AHAHAHAHAHAHAHHAHAH");
                     file = await CrossMedia.Current.TakePhotoAsync(pictureMediaOptions);
-
                 }
                 else
                 {
                     file = await CrossMedia.Current.PickPhotoAsync(galleryMediaOptions);
-
                 }
 
                 if(file != null)
