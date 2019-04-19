@@ -14,8 +14,8 @@
 
 
             <StackLayout Orientation="Horizontal">
-                <Button Text="Editer compte" Command="{Binding EditAccount}"/>
-                <Button Text="editer mdp" Command="{Binding PasswordEditAccount}"/>
+                <Button Text="Edit account" Command="{Binding EditAccount}"/>
+                <Button Text="Change password" Command="{Binding PasswordEditAccount}"/>
             </StackLayout>
         </StackLayout>
   </ContentPage.Content>

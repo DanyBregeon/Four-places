@@ -2,7 +2,9 @@
 using Storm.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Fourplaces.ViewModels
@@ -11,6 +13,8 @@ namespace Fourplaces.ViewModels
     {
         private ImageSource image;
         private byte[] imageB;
+        private bool cam = false;
+        private String errorLabel;
 
         public String Nom { get; set; }
 
@@ -29,6 +33,30 @@ namespace Fourplaces.ViewModels
             set
             {
                 SetProperty(ref image, value);
+            }
+        }
+
+        public bool Cam
+        {
+            get
+            {
+                return (cam);
+            }
+            set
+            {
+                SetProperty(ref cam, value);
+            }
+        }
+
+        public String ErrorLabel
+        {
+            get
+            {
+                return errorLabel;
+            }
+            set
+            {
+                SetProperty(ref errorLabel, value);
             }
         }
 
@@ -61,12 +89,23 @@ namespace Fourplaces.ViewModels
         {
             if (LoginResultSingleton.SingletonLR != null)
             {
-                Console.WriteLine("Dev_CPAccessToken:" + LoginResultSingleton.SingletonLR.AccessToken);
-                bool send = await RestServiceSingleton.SingletonRS.SendPlaceDataAsync(Nom, Description, Latitude, Longitude, imageB, LoginResultSingleton.SingletonLR);
-                if (send)
+                if(imageB != null)
                 {
-                    await NavigationService.PopAsync();
+                    bool send = await RestServiceSingleton.SingletonRS.SendPlaceDataAsync(Nom, Description, Latitude, Longitude, imageB, LoginResultSingleton.SingletonLR);
+                    if (send)
+                    {
+                        await NavigationService.PopAsync();
+                    }
+                    else
+                    {
+                        ErrorLabel = "Invalid fields";
+                    }
                 }
+                else
+                {
+                    ErrorLabel = "You need to add a picture";
+                }
+                
             }
             else
             {
@@ -76,8 +115,14 @@ namespace Fourplaces.ViewModels
 
         public async void Picture()
         {
-            /*imageB = await RestServiceSingleton.SingletonRS.SendPicture(Cam);
-            IMAGE = ImageSource.FromStream(() => new MemoryStream(imageB));*/
+            imageB = await RestServiceSingleton.SingletonRS.SendPicture(Cam);
+            Image = ImageSource.FromStream(() => new MemoryStream(imageB));
+        }
+
+        public override Task OnResume()
+        {
+            ErrorLabel = "";
+            return base.OnResume();
         }
     }
 }

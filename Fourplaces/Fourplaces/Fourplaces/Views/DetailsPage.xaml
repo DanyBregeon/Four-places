@@ -20,7 +20,7 @@
         </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Entry x:Name="inputC" Text="{Binding Com}" Placeholder="Add your comment !" IsVisible="{Binding IsConnected}"/>
-            <Button Text="OK" Command="{Binding CmdCom}" IsVisible="{Binding IsConnected}"/>
+            <Button Text="OK" Command="{Binding CmdCom}" IsVisible="{Binding IsConnected}" IsEnabled="{Binding ComNotEmpty}"/>
         </StackLayout>
         <StackLayout>
             <ListView ItemsSource="{Binding Place.Comments}"

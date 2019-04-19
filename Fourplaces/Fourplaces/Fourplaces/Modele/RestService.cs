@@ -302,7 +302,7 @@ namespace Fourplaces
             }
             else
             {
-                Debugger.Break();
+                //Debugger.Break();
             }
             return null;
         }
@@ -382,7 +382,7 @@ namespace Fourplaces
             }
             else
             {
-                Debugger.Break();
+                //Debugger.Break();
             }
             return false;
         }
@@ -483,7 +483,7 @@ namespace Fourplaces
             }
             else
             {
-                Debugger.Break();
+                //Debugger.Break();
             }
         }
     }

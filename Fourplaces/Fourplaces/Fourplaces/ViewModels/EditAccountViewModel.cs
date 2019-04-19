@@ -61,7 +61,6 @@ namespace Fourplaces.ViewModels
             {
                 return (cam);
             }
-
             set
             {
                 SetProperty(ref cam, value);

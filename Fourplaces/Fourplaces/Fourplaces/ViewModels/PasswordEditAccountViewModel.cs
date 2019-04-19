@@ -3,12 +3,27 @@ using Storm.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Fourplaces.ViewModels
 {
     class PasswordEditAccountViewModel : ViewModelBase
     {
+        private String errorLabel;
+
+        public String ErrorLabel
+        {
+            get
+            {
+                return errorLabel;
+            }
+            set
+            {
+                SetProperty(ref errorLabel, value);
+            }
+        }
+
         public PasswordEditAccountViewModel()
         {
 
@@ -28,7 +43,28 @@ namespace Fourplaces.ViewModels
 
         async private void Edit()
         {
-            await RestServiceSingleton.SingletonRS.EditPWAsync(OldPassword, NewPassword);
+            if(OldPassword != "" && NewPassword != "")
+            {
+                var result = await RestServiceSingleton.SingletonRS.EditPWAsync(OldPassword, NewPassword);
+                if(result != null)
+                {
+                    await NavigationService.PopAsync();
+                }
+                else
+                {
+                    ErrorLabel = "Wrong old password";
+                }
+            }
+            else
+            {
+                ErrorLabel = "All fields must be filled";
+            }
+        }
+
+        public override Task OnResume()
+        {
+            ErrorLabel = "";
+            return base.OnResume();
         }
     }
 }

@@ -15,8 +15,6 @@ namespace Fourplaces.ViewModels
     {
         private PlaceItem place;
 
-        private String commentary = "";
-
         private PlaceItemSummary placeSummary;
 
         private ImageSource imagePlace;
@@ -24,6 +22,8 @@ namespace Fourplaces.ViewModels
         private MyMap map;
 
         private String com = "";
+
+        private bool comNotEmpty = false;
 
         private bool isConnected;
 
@@ -36,18 +36,6 @@ namespace Fourplaces.ViewModels
             set
             {
                 SetProperty(ref place, value);
-            }
-        }
-
-        public String Commentary
-        {
-            get
-            {
-                return commentary;
-            }
-            set
-            {
-                SetProperty(ref commentary, value);
             }
         }
 
@@ -98,6 +86,26 @@ namespace Fourplaces.ViewModels
             set
             {
                 SetProperty(ref com, value);
+                if(value == "")
+                {
+                    ComNotEmpty = false;
+                }
+                else
+                {
+                    ComNotEmpty = true;
+                }
+            }
+        }
+
+        public bool ComNotEmpty
+        {
+            get
+            {
+                return comNotEmpty;
+            }
+            set
+            {
+                SetProperty(ref comNotEmpty, value);
             }
         }
 
@@ -128,7 +136,7 @@ namespace Fourplaces.ViewModels
 
         public override Task OnResume()
         {
-            commentary = "";
+            Com = "";
             Console.WriteLine("PlaceSummary : " + PlaceSummary);
             Task t = FindPlaceItem(PlaceSummary.Id);
             if (LoginResultSingleton.SingletonLR != null)
@@ -187,8 +195,11 @@ namespace Fourplaces.ViewModels
         {
             if (LoginResultSingleton.SingletonLR != null)
             {
-                await RestServiceSingleton.SingletonRS.SendCommentDataAsync(Place.Id, Com, LoginResultSingleton.SingletonLR);
-                await OnResume();
+                if (Com != "")
+                {
+                    await RestServiceSingleton.SingletonRS.SendCommentDataAsync(Place.Id, Com, LoginResultSingleton.SingletonLR);
+                    await OnResume();
+                }
             }
             else
             {

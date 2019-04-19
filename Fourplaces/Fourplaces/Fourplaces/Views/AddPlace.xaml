@@ -9,8 +9,8 @@
             <Label Text="CreatePlace"
                 HorizontalOptions="CenterAndExpand" />
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Galerie"/>
-                <Label Text="Camera"/>
+                <Label Text="Use the camera to take a picture"/>
+                <Switch IsToggled="{Binding Cam}"></Switch>
             </StackLayout>
             <ImageButton Source="{Binding Image}" WidthRequest="200" HeightRequest="200" Command="{Binding CmdPicture}" />
             <Entry Text="{Binding Nom}" Placeholder="nom lieu please" />
@@ -20,6 +20,7 @@
             <StackLayout Orientation="Horizontal">
                 <Button Text="Envoyer" Command="{Binding CmdAdd}"/>
             </StackLayout>
+            <Label Text="{Binding ErrorLabel}" TextColor="Red"/>
         </StackLayout>
     </ContentPage.Content>
 </mvvm:BaseContentPage>

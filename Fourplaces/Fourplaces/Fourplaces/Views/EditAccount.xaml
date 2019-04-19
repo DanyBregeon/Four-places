@@ -8,9 +8,8 @@
         <StackLayout>
             <Label Text="Editer compte"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Galerie"/>
+                <Label Text="Use the camera to take a picture"/>
                 <Switch IsToggled="{Binding Cam}"></Switch>
-                <Label Text="Camera"/>
             </StackLayout>
             <ImageButton Source="{Binding Image}" WidthRequest="200" HeightRequest="200" Command="{Binding CmdEditImg}"/>
             <Entry Text="{Binding User.FirstName}" Placeholder="First name"  />
