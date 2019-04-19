@@ -393,10 +393,9 @@ namespace Fourplaces
             {
                 var pictureMediaOptions = new StoreCameraMediaOptions
                 {
-                    /*DefaultCamera = CameraDevice.Front,
                     Directory = "Camera",
                     Name = $"{DateTime.UtcNow}.jpg",
-                    PhotoSize = PhotoSize.Small*/
+                    PhotoSize = PhotoSize.Small
                 };
 
                 var galleryMediaOptions = new PickMediaOptions

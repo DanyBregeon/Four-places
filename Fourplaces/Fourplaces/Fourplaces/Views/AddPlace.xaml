@@ -13,12 +13,12 @@
                 <Switch IsToggled="{Binding Cam}"></Switch>
             </StackLayout>
             <ImageButton Source="{Binding Image}" WidthRequest="200" HeightRequest="200" Command="{Binding CmdPicture}" />
-            <Entry Text="{Binding Nom}" Placeholder="nom lieu please" />
-            <Entry Text="{Binding Description}" Placeholder="description please" />
-            <Entry Text="{Binding Latitude}" Placeholder="longitude please?" />
-            <Entry Text="{Binding Longitude}" Placeholder="longitude please?" />
+            <Entry Text="{Binding Nom}" Placeholder="place name" />
+            <Entry Text="{Binding Description}" Placeholder="description" />
+            <Entry Text="{Binding Latitude}" Placeholder="longitude" />
+            <Entry Text="{Binding Longitude}" Placeholder="longitude" />
             <StackLayout Orientation="Horizontal">
-                <Button Text="Envoyer" Command="{Binding CmdAdd}"/>
+                <Button Text="Send" Command="{Binding CmdAdd}"/>
             </StackLayout>
             <Label Text="{Binding ErrorLabel}" TextColor="Red"/>
         </StackLayout>
