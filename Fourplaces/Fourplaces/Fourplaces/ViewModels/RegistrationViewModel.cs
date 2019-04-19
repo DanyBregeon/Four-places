@@ -3,6 +3,7 @@ using Storm.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using TD.Api.Dtos;
 using Xamarin.Forms;
 
@@ -11,6 +12,9 @@ namespace Fourplaces.ViewModels
     class RegistrationViewModel : ViewModelBase
     {
         public LoginResult lr;
+
+        private String errorLabel;
+        private String successLabel;
 
         public RegistrationViewModel()
         {
@@ -30,6 +34,30 @@ namespace Fourplaces.ViewModels
 
         public String Password { get; set; }
 
+        public String ErrorLabel
+        {
+            get
+            {
+                return errorLabel;
+            }
+            set
+            {
+                SetProperty(ref errorLabel, value);
+            }
+        }
+
+        public String SuccessLabel
+        {
+            get
+            {
+                return successLabel;
+            }
+            set
+            {
+                SetProperty(ref successLabel, value);
+            }
+        }
+
         public Command CmdRegister
         {
             get
@@ -40,15 +68,26 @@ namespace Fourplaces.ViewModels
 
         public async void Register()
         {
-
-            Console.WriteLine("Dev_Send:" + Email + "|" + FirstName + "|" + LastName + "|" + Password);
             lr = await RestServiceSingleton.SingletonRS.RegisterDataAsync(Email, FirstName, LastName, Password);
             if (lr != null)
             {
-                LoginResultSingleton.SingletonLR = lr;
-                Console.WriteLine("Dev_RDAccessToken:" + LoginResultSingleton.SingletonLR.AccessToken);
-                await NavigationService.PopAsync();
+                //LoginResultSingleton.SingletonLR = lr;
+                SuccessLabel = "Successful registration. Now sign in to add new places or comments !";
+                ErrorLabel = "";
+                //await NavigationService.PopAsync();
             }
+            else
+            {
+                SuccessLabel = "";
+                ErrorLabel = "Invalid fields or email already exist";
+            }
+        }
+
+        public override Task OnResume()
+        {
+            SuccessLabel = "";
+            ErrorLabel = "";
+            return base.OnResume();
         }
     }
 }

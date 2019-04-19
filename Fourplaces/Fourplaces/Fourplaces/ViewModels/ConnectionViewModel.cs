@@ -3,6 +3,7 @@ using Storm.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using TD.Api.Dtos;
 using Xamarin.Forms;
 
@@ -12,6 +13,8 @@ namespace Fourplaces.ViewModels
     {
         public LoginResult lr;
 
+        private String errorLabel;
+
         public ConnectionViewModel()
         {
 
@@ -19,10 +22,21 @@ namespace Fourplaces.ViewModels
             Password = "Test";
         }
 
-
         public String Login { get; set; }
 
         public String Password { get; set; }
+
+        public String ErrorLabel
+        {
+            get
+            {
+                return errorLabel;
+            }
+            set
+            {
+                SetProperty(ref errorLabel, value);
+            }
+        }
 
         public Command CmdConnection
         {
@@ -35,14 +49,22 @@ namespace Fourplaces.ViewModels
         public async void Connection()
         {
 
-            Console.WriteLine("Dev_Send:" + Login + "|" + Password);
             lr = await RestServiceSingleton.SingletonRS.ConnectionDataAsync(Login, Password);
             if (lr != null)
             {
                 LoginResultSingleton.SingletonLR = lr;
-                Console.WriteLine("Dev_RDAccessToken:" + LoginResultSingleton.SingletonLR.AccessToken);
                 await NavigationService.PopAsync();
             }
+            else
+            {
+                ErrorLabel = "Wrong email or password";
+            }
+        }
+
+        public override Task OnResume()
+        {
+            ErrorLabel = "";
+            return base.OnResume();
         }
     }
 }

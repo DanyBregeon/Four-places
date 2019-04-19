@@ -11,6 +11,8 @@
             <Entry Text="{Binding LastName}" Placeholder="last name" />
             <Entry Text="{Binding Password}" Placeholder="password" />
             <Button Text="OK" Command="{Binding CmdRegister}"/>
+            <Label Text="{Binding ErrorLabel}" TextColor="Red"/>
+            <Label Text="{Binding SuccessLabel}" TextColor="Green"/>
         </StackLayout>
     </ContentPage.Content>
 </mvvm:BaseContentPage>

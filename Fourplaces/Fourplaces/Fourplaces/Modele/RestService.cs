@@ -117,13 +117,12 @@ namespace Fourplaces
                 Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
                 if (r.IsSuccess)
                 {
-
                     return r.Data;
                 }
             }
             else
             {
-                Debugger.Break();
+                //Debugger.Break();
             }
 
             return null;
@@ -167,7 +166,7 @@ namespace Fourplaces
             }
             else
             {
-                Debugger.Break();
+                //Debugger.Break();
             }
             return null;
         }

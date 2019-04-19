@@ -25,6 +25,8 @@ namespace Fourplaces.ViewModels
 
         private String com = "";
 
+        private bool isConnected;
+
         public PlaceItem Place
         {
             get
@@ -107,6 +109,18 @@ namespace Fourplaces.ViewModels
             }
         }
 
+        public bool IsConnected
+        {
+            get
+            {
+                return isConnected;
+            }
+            set
+            {
+                SetProperty(ref isConnected, value);
+            }
+        }
+
         public DetailsViewModel()
         {
 
@@ -117,6 +131,14 @@ namespace Fourplaces.ViewModels
             commentary = "";
             Console.WriteLine("PlaceSummary : " + PlaceSummary);
             Task t = FindPlaceItem(PlaceSummary.Id);
+            if (LoginResultSingleton.SingletonLR != null)
+            {
+                IsConnected = true;
+            }
+            else
+            {
+                IsConnected = false;
+            }
             return base.OnResume();
         }
 
