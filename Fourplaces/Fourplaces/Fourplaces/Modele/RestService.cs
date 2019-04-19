@@ -225,17 +225,9 @@ namespace Fourplaces
                 upr.ImageId = iItem.Id;
             }
 
-
-
-
             var jsonRequest = JsonConvert.SerializeObject(upr);
 
-
-
             var content = new StringContent(jsonRequest, Encoding.UTF8, "text/json");
-            //var response = client.PostAsync(uri, content).Result;
-
-
 
             HttpRequestMessage request = new HttpRequestMessage(new HttpMethod("PATCH"), uri);
             request.Headers.Authorization = new AuthenticationHeaderValue(LoginResultSingleton.SingletonLR.TokenType, LoginResultSingleton.SingletonLR.AccessToken);
@@ -260,15 +252,10 @@ namespace Fourplaces
 
                     return r.Data;
                 }
-
-
-
-
             }
             else
             {
                 Debugger.Break();
-
             }
 
             return null;
@@ -400,23 +387,33 @@ namespace Fourplaces
             return false;
         }
 
-        /*public async Task<byte[]> SendPicture(bool camera)
+        public async Task<byte[]> SendPicture(bool camera)
         {
-            if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
+            /*if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
             {
-                //Supply media options for saving our photo after it's taken.
-                var pictureMediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                var pictureMediaOptions = new StoreCameraMediaOptions
                 {
                     Directory = "Receipts",
                     Name = $"{DateTime.UtcNow}.jpg",
                     PhotoSize = PhotoSize.Small
 
                 };
+                return null;
+            }
+            return null;*/
+            if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
+            {
+                //Supply media options for saving our photo after it's taken.
+                var pictureMediaOptions = new StoreCameraMediaOptions
+                {
+                    Directory = "Receipts",
+                    Name = $"{DateTime.UtcNow}.jpg",
+                    PhotoSize = PhotoSize.Small
+                };
 
-                var galleryMediaOptions = new Plugin.Media.Abstractions.PickMediaOptions
+                var galleryMediaOptions = new PickMediaOptions
                 {
                     PhotoSize = PhotoSize.Small
-
                 };
 
                 // Take a photo of the business receipt.
@@ -448,7 +445,7 @@ namespace Fourplaces
             }
 
             return null;
-        }*/
+        }
 
         public byte[] GetImageStreamAsBytes(Stream input)
         {

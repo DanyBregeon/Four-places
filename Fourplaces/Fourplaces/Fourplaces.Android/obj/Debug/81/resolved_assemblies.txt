@@ -7,6 +7,7 @@ C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces.And
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces.Android\obj\Debug\81\android\assets\Newtonsoft.Json.dll
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces.Android\obj\Debug\81\android\assets\Plugin.CurrentActivity.dll
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces.Android\obj\Debug\81\android\assets\Plugin.Geolocator.dll
+C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces.Android\obj\Debug\81\android\assets\Plugin.Media.dll
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces.Android\obj\Debug\81\android\assets\Plugin.Permissions.dll
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces.Android\obj\Debug\81\android\assets\Storm.Mvvm.Forms.dll
 C:\Users\Admin\Documents\GitHub\Four-places\Fourplaces\Fourplaces\Fourplaces.Android\obj\Debug\81\android\assets\System.Core.dll

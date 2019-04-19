@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "dd9a0d605ec58b48a180ef0395f09a31e5cd2227"
+    "signature": "6c29361e3fee9a892ed24b378084efe4ecba018c"
   },
   "compilationOptions": {},
   "targets": {
@@ -13,7 +13,7 @@
           "Newtonsoft.Json": "12.0.1",
           "Storm.Mvvm.Forms": "2.1.0",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xam.Plugin.Media": "3.1.3",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Forms": "3.4.0.1008975",
           "Xamarin.Forms.Maps": "3.4.0.1008975"
         },
@@ -32,13 +32,9 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Plugin.Permissions/2.2.1": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.3"
-        },
+      "Plugin.Permissions/3.0.0.12": {
         "runtime": {
-          "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll": {},
-          "lib/netstandard1.0/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
         }
       },
       "Storm.Mvvm.Forms/2.1.0": {
@@ -54,14 +50,12 @@
           "lib/netstandard2.0/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/3.1.3": {
+      "Xam.Plugin.Media/4.0.1.5": {
         "dependencies": {
-          "NETStandard.Library": "2.0.3",
-          "Plugin.Permissions": "2.2.1"
+          "Plugin.Permissions": "3.0.0.12"
         },
         "runtime": {
-          "lib/netstandard1.0/Plugin.Media.Abstractions.dll": {},
-          "lib/netstandard1.0/Plugin.Media.dll": {}
+          "lib/netstandard2.0/Plugin.Media.dll": {}
         }
       },
       "Xamarin.Forms/3.4.0.1008975": {
@@ -109,12 +103,12 @@
       "path": "newtonsoft.json/12.0.1",
       "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
     },
-    "Plugin.Permissions/2.2.1": {
+    "Plugin.Permissions/3.0.0.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ixEdsOBokh6eIofokJmru0u18hZKUODkvJZeest0CsHiiuRcO38yiTr+2Nq6Pg9hm0fhyavFQydhbldfHOp44Q==",
-      "path": "plugin.permissions/2.2.1",
-      "hashPath": "plugin.permissions.2.2.1.nupkg.sha512"
+      "sha512": "sha512-VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "path": "plugin.permissions/3.0.0.12",
+      "hashPath": "plugin.permissions.3.0.0.12.nupkg.sha512"
     },
     "Storm.Mvvm.Forms/2.1.0": {
       "type": "package",
@@ -130,12 +124,12 @@
       "path": "xam.plugin.geolocator/4.5.0.6",
       "hashPath": "xam.plugin.geolocator.4.5.0.6.nupkg.sha512"
     },
-    "Xam.Plugin.Media/3.1.3": {
+    "Xam.Plugin.Media/4.0.1.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SI6m6PKeOZSksNp1j5fnl1ePeuLKQWMOkqy56YhCPtspfyA7N2k4lFi+2iU3TJ2YUfjWpIybTQ/1hdLKGTY6Jw==",
-      "path": "xam.plugin.media/3.1.3",
-      "hashPath": "xam.plugin.media.3.1.3.nupkg.sha512"
+      "sha512": "sha512-a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "path": "xam.plugin.media/4.0.1.5",
+      "hashPath": "xam.plugin.media.4.0.1.5.nupkg.sha512"
     },
     "Xamarin.Forms/3.4.0.1008975": {
       "type": "package",

@@ -3,6 +3,7 @@ Fourplaces
 Newtonsoft.Json
 Plugin.CurrentActivity
 Plugin.Geolocator
+Plugin.Media
 Plugin.Permissions
 Storm.Mvvm.Forms
 System.Runtime

@@ -6,7 +6,7 @@
   <ContentPage.Content>
       <StackLayout>
             <Label Text="Mon Compte"/>
-            <Image Source="{Binding User.SOURCEIMAGE}" WidthRequest="200" HeightRequest="200" />
+            <Image Source="{Binding User.SourceImage}" WidthRequest="200" HeightRequest="200" />
             <Label Text="{Binding User.FirstName,StringFormat='First Name:{0}'}"  />
             <Label Text="{Binding User.LastName,StringFormat='Last Name:{0}'}"  />
             <Label Text="{Binding User.Email,StringFormat='email:{0}'}"  />

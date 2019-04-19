@@ -11,8 +11,11 @@
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-feature android:name="android.hardware.location.gps" />
   <uses-feature android:name="android.hardware.location.network" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
   <application android:label="Fourplaces.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
     <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyA15ag_Kwb_-IC1x8peOvax0vzQu_ApmJQ" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
@@ -22,6 +25,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:configChanges="orientation|screenSize" android:name="md54cd65ac53ae710bff80022afc423e0f3.MediaPickerActivity" />
     <receiver android:enabled="true" android:exported="false" android:name="md51558244f76c53b6aeda52c8a337f2c37.PowerSaveModeBroadcastReceiver" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.companyname.Fourplaces.Android.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->

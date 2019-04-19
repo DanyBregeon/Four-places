@@ -86,17 +86,24 @@ namespace Fourplaces.ViewModels
 
         async private void Edit()
         {
-
+            Console.WriteLine("?????EditTest:" + User.FirstName + "|" + User.LastName + "|");
             //USER.ImageId = int.Parse(IMAGEID, System.Globalization.CultureInfo.InvariantCulture);
-            Console.WriteLine("EditTest:" + User.FirstName + "|" + User.LastName + "|");
-            await RestServiceSingleton.SingletonRS.EditCountAsync(User.FirstName, User.LastName, User.ImageId, imageB);
+            var result = await RestServiceSingleton.SingletonRS.EditCountAsync(User.FirstName, User.LastName, User.ImageId, imageB);
+            if(result != null)
+            {
+                Console.WriteLine(";;;;;EditTest:" + User.FirstName + "|" + User.LastName + "|");
+                await NavigationService.PopAsync();
+            }
+            else
+            {
+                Console.WriteLine("!!!!!EditTest:" + User.FirstName + "|" + User.LastName + "|");
+            }
         }
 
         public async void EditImg()
         {
-
-            /*imageB = await RestServiceSingleton.SingletonRS.SendPicture(Cam);
-            Image = ImageSource.FromStream(() => new MemoryStream(imageB));*/
+            imageB = await RestServiceSingleton.SingletonRS.SendPicture(Cam);
+            Image = ImageSource.FromStream(() => new MemoryStream(imageB));
         }
     }
 }

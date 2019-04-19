@@ -13,9 +13,9 @@
                 <Label Text="Camera"/>
             </StackLayout>
             <ImageButton Source="{Binding Image}" WidthRequest="200" HeightRequest="200" Command="{Binding CmdEditImg}"/>
-            <Entry Text="{Binding User.FirstName}" Placeholder="Prénom"  />
-            <Entry Text="{Binding User.LastName}" Placeholder="Nom"  />
-            <Button Text="modifier" Command="{Binding CmdEdit}"/>
+            <Entry Text="{Binding User.FirstName}" Placeholder="First name"  />
+            <Entry Text="{Binding User.LastName}" Placeholder="Last name"  />
+            <Button Text="Save Changes" Command="{Binding CmdEdit}"/>
 
         </StackLayout>
     </ContentPage.Content>
