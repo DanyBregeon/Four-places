@@ -24,6 +24,13 @@ namespace Fourplaces.ViewModels
 
         public Position currentPosition;
 
+        private String toolBarText1 = "";
+        private String toolBarText2 = "";
+        private String toolBarText3 = "";
+        private Command cmd1;
+        private Command cmd2;
+        private Command cmd3;
+
         public PlaceItemSummary PlaceSummary
         {
             get
@@ -63,6 +70,78 @@ namespace Fourplaces.ViewModels
             }
         }
 
+        public String ToolBarText1
+        {
+            get
+            {
+                return toolBarText1;
+            }
+            set
+            {
+                SetProperty(ref toolBarText1, value);
+            }
+        }
+
+        public String ToolBarText2
+        {
+            get
+            {
+                return toolBarText2;
+            }
+            set
+            {
+                SetProperty(ref toolBarText2, value);
+            }
+        }
+
+        public String ToolBarText3
+        {
+            get
+            {
+                return toolBarText3;
+            }
+            set
+            {
+                SetProperty(ref toolBarText3, value);
+            }
+        }
+
+        public Command Cmd1
+        {
+            get
+            {
+                return cmd1;
+            }
+            set
+            {
+                SetProperty(ref cmd1, value);
+            }
+        }
+
+        public Command Cmd2
+        {
+            get
+            {
+                return cmd2;
+            }
+            set
+            {
+                SetProperty(ref cmd2, value);
+            }
+        }
+
+        public Command Cmd3
+        {
+            get
+            {
+                return cmd3;
+            }
+            set
+            {
+                SetProperty(ref cmd3, value);
+            }
+        }
+
         public Command Connection
         {
             get
@@ -75,6 +154,7 @@ namespace Fourplaces.ViewModels
         {
             get
             {
+
                 return new Command(() => GoToRegistration());
             }
         }
@@ -131,6 +211,22 @@ namespace Fourplaces.ViewModels
         public override Task OnResume()
         {
             Task t = FindData();
+            if (LoginResultSingleton.SingletonLR != null)
+            {
+                ToolBarText1 = "Sign out";
+                ToolBarText2 = "My account";
+                ToolBarText3 = "Add place";
+                Cmd2 = MyAccount;
+                Cmd3 = AddPlace;
+            }
+            else
+            {
+                ToolBarText1 = "";
+                ToolBarText2 = "Sign in";
+                ToolBarText3 = "Sign up";
+                Cmd2 = Connection;
+                Cmd3 = Registration;
+            }
             return base.OnResume();
         }
 
