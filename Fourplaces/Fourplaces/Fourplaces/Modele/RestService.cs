@@ -360,6 +360,47 @@ namespace Fourplaces
             }
         }
 
+        public async Task<bool> SendPlaceDataAsync(String nom, String description, string latitude, string longitude, byte[] imageData, LoginResult lr)
+        {
+            var uri = new Uri(string.Format(url + "places/", string.Empty));
+
+            double lattitudeD = double.Parse(latitude, System.Globalization.CultureInfo.InvariantCulture);
+            double longitudeD = double.Parse(longitude, System.Globalization.CultureInfo.InvariantCulture);
+
+            CreatePlaceRequest cpr = new CreatePlaceRequest();
+            cpr.Title = nom;
+            cpr.Description = description;
+
+            ImageItem iItem = await UploadImage(imageData);
+            cpr.ImageId = iItem.Id;
+
+            cpr.Latitude = lattitudeD;
+            cpr.Longitude = longitudeD;
+
+            var jsonRequest = JsonConvert.SerializeObject(cpr);
+            var content = new StringContent(jsonRequest, Encoding.UTF8, "text/json");
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", lr.AccessToken);
+            request.Content = content;
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            string result = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine("Dev_RDResponse:" + result);
+            Console.WriteLine("Dev_RDStatusCode:" + response.StatusCode);
+            if (response.IsSuccessStatusCode)
+            {
+                Response r = JsonConvert.DeserializeObject<Response>(result);
+                return true;
+            }
+            else
+            {
+                Debugger.Break();
+            }
+            return false;
+        }
+
         /*public async Task<byte[]> SendPicture(bool camera)
         {
             if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
@@ -410,7 +451,7 @@ namespace Fourplaces
             return null;
         }*/
 
-        public byte[] GetImageStreamAsBytes(Stream input) //Put in private later
+        public byte[] GetImageStreamAsBytes(Stream input)
         {
             var buffer = new byte[16 * 1024];
             using (MemoryStream ms = new MemoryStream())
@@ -421,6 +462,32 @@ namespace Fourplaces
                     ms.Write(buffer, 0, read);
                 }
                 return ms.ToArray();
+            }
+        }
+
+        public async Task SendCommentDataAsync(int id, String comment, LoginResult lr)
+        {
+
+            var uri = new Uri(string.Format(url + "places/" + id + "/comments", string.Empty));
+
+            CreateCommentRequest ccr = new CreateCommentRequest();
+            ccr.Text = comment;
+            var jsonRequest = JsonConvert.SerializeObject(ccr);
+            var content = new StringContent(jsonRequest, Encoding.UTF8, "text/json");
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", lr.AccessToken);
+            request.Content = content;
+            HttpResponseMessage response = await client.SendAsync(request);
+            string result = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                Response r = JsonConvert.DeserializeObject<Response>(result);
+            }
+            else
+            {
+                Debugger.Break();
             }
         }
     }

@@ -21,9 +21,10 @@
     </ListView>-->
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Connexion" Command="{Binding Connection}"  Order="Primary" Priority="0" />
-        <ToolbarItem Name="Inscription" Command="{Binding Registration}"  Order="Primary" Priority="1" />
-        <ToolbarItem Name="MonCompte" Command="{Binding MyAccount}"  Order="Primary" Priority="2" />
+        <ToolbarItem Name="Sign in" Command="{Binding Connection}"  Order="Primary" Priority="0" />
+        <ToolbarItem Name="Sign up" Command="{Binding Registration}"  Order="Primary" Priority="1" />
+        <ToolbarItem Name="My account" Command="{Binding MyAccount}"  Order="Primary" Priority="2" />
+        <ToolbarItem Name="Add place" Command="{Binding AddPlace}"  Order="Primary" Priority="3" />
     </ContentPage.ToolbarItems>
 
     <ListView ItemsSource="{Binding ListPlaceSummary}"

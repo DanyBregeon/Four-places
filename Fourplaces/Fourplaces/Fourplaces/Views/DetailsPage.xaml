@@ -18,6 +18,31 @@
         <StackLayout>
             <ContentView Content="{Binding Map}"/>
         </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="inputC" Text="{Binding Com}" Placeholder="Un nouveau commentaire?" />
+            <Button Text="OK" Command="{Binding CmdCom}"/>
+        </StackLayout>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Place.Comments}"
+                          HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Author.SourceImage}" WidthRequest="40" HeightRequest="40"/>
+
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Date, StringFormat='Date:{0:dd/MM/yy}'}"/>
+                                    <Label Text="{Binding Author.FirstName, StringFormat='Author:{0:dd/MM/yy}'}"/>
+                                    <Label Text="{Binding Text, StringFormat='comment:{0}'}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </StackLayout>
 
 </mvvm:BaseContentPage>

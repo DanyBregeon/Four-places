@@ -23,6 +23,8 @@ namespace Fourplaces.ViewModels
 
         private MyMap map;
 
+        private String com = "";
+
         public PlaceItem Place
         {
             get
@@ -85,6 +87,26 @@ namespace Fourplaces.ViewModels
             }
         }
 
+        public String Com
+        {
+            get
+            {
+                return com;
+            }
+            set
+            {
+                SetProperty(ref com, value);
+            }
+        }
+
+        public Command CmdCom
+        {
+            get
+            {
+                return new Command(() => AddComment());
+            }
+        }
+
         public DetailsViewModel()
         {
 
@@ -137,6 +159,20 @@ namespace Fourplaces.ViewModels
         {
             Console.WriteLine("Dev_getImage");
             ImagePlace = await RestServiceSingleton.SingletonRS.GetRequestImage(Place.ImageId);
+        }
+
+        public async void AddComment()
+        {
+            if (LoginResultSingleton.SingletonLR != null)
+            {
+                await RestServiceSingleton.SingletonRS.SendCommentDataAsync(Place.Id, Com, LoginResultSingleton.SingletonLR);
+                await OnResume();
+            }
+            else
+            {
+                Console.WriteLine("Dev_ACPasEncoreConnecte:");
+            }
+
         }
     }
 }

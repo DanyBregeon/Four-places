@@ -69,7 +69,6 @@ namespace Fourplaces.ViewModels
             {
                 return new Command(() => GoToConnection());
             }
-
         }
 
         public Command Registration
@@ -86,7 +85,14 @@ namespace Fourplaces.ViewModels
             {
                 return new Command(() => GoToMyAccount());
             }
+        }
 
+        public Command AddPlace
+        {
+            get
+            {
+                return new Command(() => GoToAddPlace());
+            }
         }
 
         async private void GoToConnection()
@@ -101,8 +107,13 @@ namespace Fourplaces.ViewModels
 
         async private void GoToMyAccount()
         {
-            //await NavigationService.PushAsync(new MonCompte());
+            //await NavigationService.PushAsync(new MyAccount());
             await NavigationService.PushAsync<MyAccount>();
+        }
+
+        async private void GoToAddPlace()
+        {
+            await NavigationService.PushAsync(new AddPlace());
         }
 
         //public DataTemplate Dt { get => dt; set => SetProperty(ref dt, value); }
