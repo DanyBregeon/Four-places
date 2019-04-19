@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using TD.Api.Dtos;
 using Xamarin.Forms;
 
@@ -18,6 +19,20 @@ namespace Fourplaces.ViewModels
         private byte[] imageB;
 
         private bool cam = false;
+
+        private String errorLabel;
+
+        public String ErrorLabel
+        {
+            get
+            {
+                return errorLabel;
+            }
+            set
+            {
+                SetProperty(ref errorLabel, value);
+            }
+        }
 
         public EditAccountViewModel()
         {
@@ -85,24 +100,30 @@ namespace Fourplaces.ViewModels
 
         async private void Edit()
         {
-            Console.WriteLine("?????EditTest:" + User.FirstName + "|" + User.LastName + "|");
-            //USER.ImageId = int.Parse(IMAGEID, System.Globalization.CultureInfo.InvariantCulture);
             var result = await RestServiceSingleton.SingletonRS.EditCountAsync(User.FirstName, User.LastName, User.ImageId, imageB);
             if(result != null)
             {
-                Console.WriteLine(";;;;;EditTest:" + User.FirstName + "|" + User.LastName + "|");
                 await NavigationService.PopAsync();
             }
             else
             {
-                Console.WriteLine("!!!!!EditTest:" + User.FirstName + "|" + User.LastName + "|");
+                ErrorLabel = "All fields must be filled";
             }
         }
 
         public async void EditImg()
         {
             imageB = await RestServiceSingleton.SingletonRS.SendPicture(Cam);
-            Image = ImageSource.FromStream(() => new MemoryStream(imageB));
+            if (imageB != null)
+            {
+                Image = ImageSource.FromStream(() => new MemoryStream(imageB));
+            }
+        }
+
+        public override Task OnResume()
+        {
+            ErrorLabel = "";
+            return base.OnResume();
         }
     }
 }

@@ -116,7 +116,10 @@ namespace Fourplaces.ViewModels
         public async void Picture()
         {
             imageB = await RestServiceSingleton.SingletonRS.SendPicture(Cam);
-            Image = ImageSource.FromStream(() => new MemoryStream(imageB));
+            if(imageB != null)
+            {
+                Image = ImageSource.FromStream(() => new MemoryStream(imageB));
+            }
         }
 
         public override Task OnResume()

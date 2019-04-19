@@ -15,7 +15,7 @@
             <Entry Text="{Binding User.FirstName}" Placeholder="First name"  />
             <Entry Text="{Binding User.LastName}" Placeholder="Last name"  />
             <Button Text="Save Changes" Command="{Binding CmdEdit}"/>
-
+            <Label Text="{Binding ErrorLabel}" TextColor="Red"/>
         </StackLayout>
     </ContentPage.Content>
 </mvvm:BaseContentPage>

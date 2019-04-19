@@ -255,7 +255,7 @@ namespace Fourplaces
             }
             else
             {
-                Debugger.Break();
+                //Debugger.Break();
             }
 
             return null;
@@ -389,21 +389,8 @@ namespace Fourplaces
 
         public async Task<byte[]> SendPicture(bool camera)
         {
-            /*if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
-            {
-                var pictureMediaOptions = new StoreCameraMediaOptions
-                {
-                    Directory = "Receipts",
-                    Name = $"{DateTime.UtcNow}.jpg",
-                    PhotoSize = PhotoSize.Small
-
-                };
-                return null;
-            }
-            return null;*/
             if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
             {
-                //Supply media options for saving our photo after it's taken.
                 var pictureMediaOptions = new StoreCameraMediaOptions
                 {
                     Directory = "Receipts",
@@ -416,7 +403,6 @@ namespace Fourplaces
                     PhotoSize = PhotoSize.Small
                 };
 
-                // Take a photo of the business receipt.
                 MediaFile file;
                 if (camera)
                 {
@@ -429,19 +415,15 @@ namespace Fourplaces
 
                 }
 
-                //if (file == null) MODIFY CODE HERE ELSE NULL IF QUIT PICTURE
-                //{
-                //    file = "profileDef.png";
-                //}
-                Console.WriteLine("picture:");
-                Console.WriteLine("picture:" + file);
+                if(file != null)
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    byte[] imageData = GetImageStreamAsBytes(stream);
+                    return imageData;
+                }
 
-                var stream = file.GetStream();
-                file.Dispose();
-                byte[] imageData = GetImageStreamAsBytes(stream);
-                return imageData;
-
-                //return file;
+                return null;
             }
 
             return null;
