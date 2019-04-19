@@ -28,5 +28,10 @@ namespace Fourplaces.Modele
                 }
             }
         }
+
+        public static void SignOut()
+        {
+            singletonLR = null;
+        }
     }
 }

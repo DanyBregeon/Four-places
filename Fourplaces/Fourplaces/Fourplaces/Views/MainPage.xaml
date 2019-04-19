@@ -43,7 +43,6 @@
                         <StackLayout Orientation="Vertical">
                             <Label Text="{Binding Title, StringFormat='titles:{0}'}"/>
                             <Label Text="{Binding Description  , StringFormat='description:{0}'}" LineBreakMode="TailTruncation" MaxLines="3"/>
-
                         </StackLayout>
                     </StackLayout>
                 </ViewCell>

@@ -175,6 +175,14 @@ namespace Fourplaces.ViewModels
             }
         }
 
+        public Command CmdSignOut
+        {
+            get
+            {
+                return new Command(() => SignOut());
+            }
+        }
+
         async private void GoToConnection()
         {
             await NavigationService.PushAsync(new Connection());
@@ -194,6 +202,12 @@ namespace Fourplaces.ViewModels
         async private void GoToAddPlace()
         {
             await NavigationService.PushAsync(new AddPlace());
+        }
+
+        private void SignOut()
+        {
+            LoginResultSingleton.SignOut();
+            OnResume();
         }
 
         //public DataTemplate Dt { get => dt; set => SetProperty(ref dt, value); }
@@ -216,6 +230,7 @@ namespace Fourplaces.ViewModels
                 ToolBarText1 = "Sign out";
                 ToolBarText2 = "My account";
                 ToolBarText3 = "Add place";
+                Cmd1 = CmdSignOut;
                 Cmd2 = MyAccount;
                 Cmd3 = AddPlace;
             }
@@ -224,6 +239,7 @@ namespace Fourplaces.ViewModels
                 ToolBarText1 = "";
                 ToolBarText2 = "Sign in";
                 ToolBarText3 = "Sign up";
+                Cmd1 = null;
                 Cmd2 = Connection;
                 Cmd3 = Registration;
             }
