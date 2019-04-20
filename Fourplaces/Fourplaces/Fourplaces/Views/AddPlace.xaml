@@ -6,8 +6,7 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="CreatePlace"
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Add a new place" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Text="Use the camera to take a picture"/>
                 <Switch IsToggled="{Binding Cam}"></Switch>

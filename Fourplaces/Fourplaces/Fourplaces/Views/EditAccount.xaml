@@ -6,7 +6,7 @@
     
   <ContentPage.Content>
         <StackLayout>
-            <Label Text="Editer compte"/>
+            <Label Text="Edit account" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Text="Use the camera to take a picture"/>
                 <Switch IsToggled="{Binding Cam}"></Switch>

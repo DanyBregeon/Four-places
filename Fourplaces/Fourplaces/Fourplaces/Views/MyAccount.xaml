@@ -5,15 +5,16 @@
              xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms">
   <ContentPage.Content>
       <StackLayout>
-            <Label Text="Mon Compte"/>
-            <Image Source="{Binding User.SourceImage}" WidthRequest="200" HeightRequest="200" />
-            <Label Text="{Binding User.FirstName,StringFormat='First Name:{0}'}"  />
-            <Label Text="{Binding User.LastName,StringFormat='Last Name:{0}'}"  />
-            <Label Text="{Binding User.Email,StringFormat='email:{0}'}"  />
-            <Label Text="{Binding User.ImageId,StringFormat='Image Id:{0}'}" />
+            <Label Text="My account" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+            <Label Text="Profile picture : " HorizontalOptions="Center"/>
+            <Image Source="{Binding User.SourceImage}" WidthRequest="180" HeightRequest="180" />
+            <Label Text="{Binding User.FirstName,StringFormat='First Name : {0}'}"  />
+            <Label Text="{Binding User.LastName,StringFormat='Last Name : {0}'}"  />
+            <Label Text="{Binding User.Email,StringFormat='email : {0}'}"  />
+            <!--<Label Text="{Binding User.ImageId,StringFormat='Image Id:{0}'}" />-->
 
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Button Text="Edit account" Command="{Binding EditAccount}"/>
                 <Button Text="Change password" Command="{Binding PasswordEditAccount}"/>
             </StackLayout>

@@ -5,12 +5,12 @@
              xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms">
   <ContentPage.Content>
         <StackLayout>
-            <Label Text="S'inscrire"/>
+            <Label Text="Registration : " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
             <Entry Text="{Binding Email}" Placeholder="login" />
             <Entry Text="{Binding FirstName}" Placeholder="first name" />
             <Entry Text="{Binding LastName}" Placeholder="last name" />
             <Entry Text="{Binding Password}" Placeholder="password" />
-            <Button Text="OK" Command="{Binding CmdRegister}"/>
+            <Button Text="Validate" Command="{Binding CmdRegister}"/>
             <Label Text="{Binding ErrorLabel}" TextColor="Red"/>
             <Label Text="{Binding SuccessLabel}" TextColor="Green"/>
         </StackLayout>

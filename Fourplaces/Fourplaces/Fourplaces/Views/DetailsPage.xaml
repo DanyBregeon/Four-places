@@ -4,20 +4,25 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
              x:Class="Fourplaces.Views.DetailsPage">
-
-    <StackLayout>
-        <ScrollView>
+    <ScrollView>
+        <StackLayout>
             <StackLayout>
+                <Label Text="{Binding Place.Title}" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
                 <Image Source="{Binding ImagePlace}" WidthRequest="200" HeightRequest="200"/>
-                <Label Text="{Binding Place.Title}"/>
+                <Label Text="Description : " FontAttributes="Bold"/>
                 <Label Text="{Binding Place.Description}"/>
-                <Label Text="{Binding Place.Latitude, StringFormat='latitude:{0}'}"/>
-                <Label Text="{Binding Place.Longitude, StringFormat='Longitude:{0}'}"/>
+                <Label Text="Position : " FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Place.Latitude, StringFormat='Latitude:{0}'}"/>
+                    <Label Text="{Binding Place.Longitude, StringFormat='Longitude:{0}'}"/>
+                </StackLayout>
             </StackLayout>
-        </ScrollView>
         <StackLayout>
             <ContentView Content="{Binding Map}"/>
         </StackLayout>
+        <StackLayout>
+                <Label Text="Comments : " FontAttributes="Bold"/>
+            </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Entry x:Name="inputC" Text="{Binding Com}" Placeholder="Add your comment !" IsVisible="{Binding IsConnected}"/>
             <Button Text="OK" Command="{Binding CmdCom}" IsVisible="{Binding IsConnected}" IsEnabled="{Binding ComNotEmpty}"/>
@@ -32,9 +37,12 @@
                                 <Image Source="{Binding Author.SourceImage}" WidthRequest="40" HeightRequest="40"/>
 
                                 <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding Date, StringFormat='Date:{0:dd/MM/yy}'}"/>
-                                    <Label Text="{Binding Author.FirstName, StringFormat='Author:{0:dd/MM/yy}'}"/>
-                                    <Label Text="{Binding Text, StringFormat='comment:{0}'}"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Author.FirstName}" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yy}'}"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding Text}"/>
+                                        <Label></Label>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -44,5 +52,5 @@
             </ListView>
         </StackLayout>
     </StackLayout>
-
+    </ScrollView>
 </mvvm:BaseContentPage>

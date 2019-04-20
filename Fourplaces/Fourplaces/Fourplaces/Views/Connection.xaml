@@ -6,10 +6,10 @@
     
   <ContentPage.Content>
       <StackLayout>
-            <Label Text="Se connecter"/>
+            <Label Text="Connection : " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
             <Entry Text="{Binding Login}" Placeholder="login" />
             <Entry Text="{Binding Password}" Placeholder="password" />
-            <Button Text="OK" Command="{Binding CmdConnection}"/>
+            <Button Text="Validate" Command="{Binding CmdConnection}"/>
             <Label Text="{Binding ErrorLabel}" TextColor="Red"/>
         </StackLayout>
   </ContentPage.Content>
