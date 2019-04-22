@@ -5,31 +5,11 @@
              xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
              x:Name="mainpage">
 
-    <!--<ListView ItemsSource="{Binding TaskItems}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Margin="8">
-
-                        <Label Text="{Binding Nom}"
-                           FontAttributes="Bold" />
-
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>-->
-
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{Binding ToolBarText1}" Command="{Binding Cmd1}"  Order="Primary" Priority="0"/>
         <ToolbarItem Text="{Binding ToolBarText2}" Command="{Binding Cmd2}"  Order="Primary" Priority="1" />
         <ToolbarItem Text="{Binding ToolBarText3}" Command="{Binding Cmd3}"  Order="Primary" Priority="2" />
     </ContentPage.ToolbarItems>
-
-    <!--<ContentPage.ToolbarItems IsVisible="{Binding IsConnected}">
-        <ToolbarItem Name="My account" Command="{Binding MyAccount}"  Order="Primary" Priority="0" />
-        <ToolbarItem Name="Add place" Command="{Binding AddPlace}"  Order="Primary" Priority="1" />
-    </ContentPage.ToolbarItems>-->
 
     <ListView ItemsSource="{Binding ListPlaceSummary}"
                   HasUnevenRows="true"
@@ -52,26 +32,3 @@
     </ListView>
 
 </mvvm:BaseContentPage>    
-    
-    
-<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Fourplaces"
-             x:Class="Fourplaces.Views.MainPage">
-
-    <ListView ItemsSource="{Binding TaskItems}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Margin="8">
-
-                        <Label Text="{Binding Nom}"
-                           FontAttributes="Bold" />
-
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-
-</ContentPage>-->

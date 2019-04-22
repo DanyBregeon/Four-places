@@ -18,11 +18,14 @@ namespace Fourplaces.ViewModels
 
         public RegistrationViewModel()
         {
-
-            Email = "test@test.com";
+            Email = "";
+            FirstName = "";
+            LastName = "";
+            Password = "";
+            /*Email = "test@test.com";
             FirstName = "FTest";
             LastName = "LTest";
-            Password = "Test";
+            Password = "Test";*/
         }
 
 
@@ -68,19 +71,27 @@ namespace Fourplaces.ViewModels
 
         public async void Register()
         {
-            lr = await RestServiceSingleton.SingletonRS.RegisterDataAsync(Email, FirstName, LastName, Password);
-            if (lr != null)
+            if(!String.IsNullOrEmpty(Email) && !String.IsNullOrEmpty(FirstName) && !String.IsNullOrEmpty(LastName) && !String.IsNullOrEmpty(Password))
             {
-                //LoginResultSingleton.SingletonLR = lr;
-                SuccessLabel = "Successful registration. Now sign in to add new places or comments !";
-                ErrorLabel = "";
-                //await NavigationService.PopAsync();
+                lr = await RestServiceSingleton.SingletonRS.RegisterDataAsync(Email, FirstName, LastName, Password);
+                if (lr != null)
+                {
+                    //LoginResultSingleton.SingletonLR = lr;
+                    SuccessLabel = "Successful registration. Now sign in to add new places or comments !";
+                    ErrorLabel = "";
+                    //await NavigationService.PopAsync();
+                }
+                else
+                {
+                    SuccessLabel = "";
+                    ErrorLabel = "Invalid fields or email already exist";
+                }
             }
             else
             {
                 SuccessLabel = "";
-                ErrorLabel = "Invalid fields or email already exist";
-            }
+                ErrorLabel = "All fields must be filled";
+            }  
         }
 
         public override Task OnResume()

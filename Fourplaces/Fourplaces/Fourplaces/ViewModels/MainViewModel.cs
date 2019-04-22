@@ -15,8 +15,6 @@ namespace Fourplaces.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
-        //private DataTemplate dt;
-        private ObservableCollection<ItemModel> _TaskItems;
 
         public List<PlaceItemSummary> listPlaceSummary;
 
@@ -42,19 +40,6 @@ namespace Fourplaces.ViewModels
             {
                 SetProperty(ref placeSummary, value);
                 ItemTapped();
-            }
-        }
-
-        public ObservableCollection<ItemModel> TaskItems
-        {
-            get
-            {
-                return _TaskItems;
-
-            }
-            set
-            {
-                SetProperty(ref _TaskItems, value);
             }
         }
 
@@ -210,16 +195,10 @@ namespace Fourplaces.ViewModels
             OnResume();
         }
 
-        //public DataTemplate Dt { get => dt; set => SetProperty(ref dt, value); }
 
         public MainViewModel()
         {
-            /*Console.WriteLine("\nBONJOUR JE SUIS LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
-            TaskItems = new ObservableCollection<ItemModel>();
-            TaskItems.Add(new ItemModel { Nom = "lieu 1" });
-            TaskItems.Add(new ItemModel { Nom = "lieu 2" });
-            TaskItems.Add(new ItemModel { Nom = "lieu 3" });*/
-            //Dt = new DataTemplate(typeof(CustomCell));
+
         }
 
         public override Task OnResume()
@@ -269,7 +248,6 @@ namespace Fourplaces.ViewModels
                 }
                 else
                 {
-                    Console.WriteLine("DevLoc_Lat:null");
                     return new Position();
                 }
             }
@@ -294,7 +272,6 @@ namespace Fourplaces.ViewModels
             {
                 Position posPlace = new Position(pis.Latitude, pis.Longitude);
                 Distance d = DistanceBetweenPoints(currentPosition, posPlace);
-                Console.WriteLine("Dev_DistSort:" + pis.Title + "|" + pis.ImageId + "|" + d.Kilometers);
             }
 
             return list;
@@ -329,8 +306,6 @@ namespace Fourplaces.ViewModels
         {
             if (PlaceSummary != null)
             {
-                Console.WriteLine("ItemTapped:" + PlaceSummary.Id + " " + PlaceSummary.Latitude + "|" + PlaceSummary.Longitude);
-
                 await NavigationService.PushAsync<DetailsPage>(new Dictionary<string, object>() { { "PlaceSummary", PlaceSummary } });
             }
         }

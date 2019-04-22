@@ -12,7 +12,9 @@
                 <Switch IsToggled="{Binding Cam}"></Switch>
             </StackLayout>
             <ImageButton Source="{Binding Image}" WidthRequest="200" HeightRequest="200" Command="{Binding CmdEditImg}"/>
+            <Label Text="First name : "/>
             <Entry Text="{Binding User.FirstName}" Placeholder="First name"  />
+            <Label Text="Last name : "/>
             <Entry Text="{Binding User.LastName}" Placeholder="Last name"  />
             <Button Text="Save Changes" Command="{Binding CmdEdit}"/>
             <Label Text="{Binding ErrorLabel}" TextColor="Red"/>

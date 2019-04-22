@@ -6,7 +6,7 @@
   <ContentPage.Content>
         <StackLayout>
             <Label Text="Registration : " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
-            <Entry Text="{Binding Email}" Placeholder="login" />
+            <Entry Text="{Binding Email}" Placeholder="email" />
             <Entry Text="{Binding FirstName}" Placeholder="first name" />
             <Entry Text="{Binding LastName}" Placeholder="last name" />
             <Entry Text="{Binding Password}" Placeholder="password" />

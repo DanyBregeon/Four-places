@@ -7,7 +7,7 @@
   <ContentPage.Content>
       <StackLayout>
             <Label Text="Connection : " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
-            <Entry Text="{Binding Login}" Placeholder="login" />
+            <Entry Text="{Binding Login}" Placeholder="email" />
             <Entry Text="{Binding Password}" Placeholder="password" />
             <Button Text="Validate" Command="{Binding CmdConnection}"/>
             <Label Text="{Binding ErrorLabel}" TextColor="Red"/>

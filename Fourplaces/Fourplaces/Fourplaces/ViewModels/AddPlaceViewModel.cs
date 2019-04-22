@@ -68,6 +68,10 @@ namespace Fourplaces.ViewModels
             Description = "un lieu";
             Latitude = "42";
             Longitude = "42";*/
+            Nom = "";
+            Description = "";
+            Latitude = "";
+            Longitude = "";
             Image = "profilDef.png";
         }
 
@@ -125,10 +129,6 @@ namespace Fourplaces.ViewModels
                     ErrorLabel = "You need to add a picture";
                 }
                 
-            }
-            else
-            {
-                Console.WriteLine("Dev_CPPasEncoreConnecte:");
             }
         }
 

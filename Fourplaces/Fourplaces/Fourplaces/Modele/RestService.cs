@@ -74,10 +74,8 @@ namespace Fourplaces
             }
             else
             {
-                Console.WriteLine("Image:" + id);
                 var uri = new Uri(string.Format(url + "images/" + id, string.Empty));
                 var response = await client.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead);
-                Console.WriteLine("Status:" + response.StatusCode);
                 if (response.IsSuccessStatusCode)
                 {
                     byte[] content = await response.Content.ReadAsByteArrayAsync();
@@ -92,8 +90,6 @@ namespace Fourplaces
         {
             var uri = new Uri(string.Format(url + "auth/register", string.Empty));
 
-            Console.WriteLine("Dev_RegisterData:");
-
             RegisterRequest rr = new RegisterRequest();
             rr.Email = email;
             rr.FirstName = fname;
@@ -102,7 +98,6 @@ namespace Fourplaces
             var jsonRequest = JsonConvert.SerializeObject(rr);
 
             var content = new StringContent(jsonRequest, Encoding.UTF8, "text/json");
-            //var response = client.PostAsync(uri, content).Result;
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "__access__token__");
             request.Content = content;
@@ -110,11 +105,7 @@ namespace Fourplaces
             string result = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Dev_RDResponse:" + result);
                 Response<LoginResult> r = JsonConvert.DeserializeObject<Response<LoginResult>>(result);
-                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
-                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
-                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
                 if (r.IsSuccess)
                 {
                     return r.Data;
@@ -134,8 +125,6 @@ namespace Fourplaces
 
             var uri = new Uri(string.Format(url + "auth/login", string.Empty));
 
-            Console.WriteLine("Dev_ConnexionData:");
-
             LoginRequest lr = new LoginRequest();
             lr.Email = login;
 
@@ -143,7 +132,6 @@ namespace Fourplaces
             var jsonRequest = JsonConvert.SerializeObject(lr);
 
             var content = new StringContent(jsonRequest, Encoding.UTF8, "text/json");
-            //var response = client.PostAsync(uri, content).Result;
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "__access__token__");
@@ -154,11 +142,7 @@ namespace Fourplaces
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Dev_CDResponse:" + result);
                 Response<LoginResult> r = JsonConvert.DeserializeObject<Response<LoginResult>>(result);
-                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
-                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
-                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
                 if (r.IsSuccess)
                 {
                     return r.Data;
@@ -183,11 +167,7 @@ namespace Fourplaces
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Dev_UDResponse:" + result);
                 Response<UserItem> r = JsonConvert.DeserializeObject<Response<UserItem>>(result);
-                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
-                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
-                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
 
                 if (r.IsSuccess)
                 {
@@ -208,14 +188,12 @@ namespace Fourplaces
 
             var uri = new Uri(string.Format(url + "me", string.Empty));
 
-            Console.WriteLine("Dev_ECA:");
-
 
             UpdateProfileRequest upr = new UpdateProfileRequest();
             upr.FirstName = FName;
             upr.LastName = LName;
 
-            if (imageData == null) //ne pas mettre a jour l'image de profil
+            if (imageData == null)
             {
                 upr.ImageId = imageId;
             }
@@ -236,16 +214,9 @@ namespace Fourplaces
 
             string result = await response.Content.ReadAsStringAsync();
 
-            Console.WriteLine("Dev_ECAesponse:" + result);
-            Console.WriteLine("Dev_ECAtatusCode:" + response.StatusCode);
-
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Dev_ECAResponse:" + result);
                 Response<UserItem> r = JsonConvert.DeserializeObject<Response<UserItem>>(result);
-                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
-                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
-                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
 
                 if (r.IsSuccess)
                 {
@@ -266,15 +237,12 @@ namespace Fourplaces
         {
             var uri = new Uri(string.Format(url + "me/password", string.Empty));
 
-            Console.WriteLine("Dev_ECA:");
-
             UpdatePasswordRequest upr = new UpdatePasswordRequest();
             upr.OldPassword = oldPW;
             upr.NewPassword = newPW;
             var jsonRequest = JsonConvert.SerializeObject(upr);
 
             var content = new StringContent(jsonRequest, Encoding.UTF8, "text/json");
-            //var response = client.PostAsync(uri, content).Result;
 
             HttpRequestMessage request = new HttpRequestMessage(new HttpMethod("PATCH"), uri);
             request.Headers.Authorization = new AuthenticationHeaderValue(LoginResultSingleton.SingletonLR.TokenType, LoginResultSingleton.SingletonLR.AccessToken);
@@ -283,16 +251,9 @@ namespace Fourplaces
 
             string result = await response.Content.ReadAsStringAsync();
 
-            Console.WriteLine("Dev_ECAesponse:" + result);
-            Console.WriteLine("Dev_ECAtatusCode:" + response.StatusCode);
-
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Dev_ECAResponse:" + result);
                 Response<UserItem> r = JsonConvert.DeserializeObject<Response<UserItem>>(result);
-                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
-                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
-                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
 
                 if (r.IsSuccess)
                 {
@@ -326,16 +287,9 @@ namespace Fourplaces
 
             string result = await response.Content.ReadAsStringAsync();
 
-            Console.WriteLine("Dev_RDResponse:" + result);
-            Console.WriteLine("Dev_RDStatusCode:" + response.StatusCode);
-
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Image uploaded!");
                 Response<ImageItem> r = JsonConvert.DeserializeObject<Response<ImageItem>>(result);
-                Console.WriteLine("Dev_is_sucess:" + r.IsSuccess);
-                Console.WriteLine("Dev_error_code:" + r.ErrorCode);
-                Console.WriteLine("Dev_error_message:" + r.ErrorMessage);
 
                 return r.Data;
             }
@@ -373,8 +327,6 @@ namespace Fourplaces
 
             string result = await response.Content.ReadAsStringAsync();
 
-            Console.WriteLine("Dev_RDResponse:" + result);
-            Console.WriteLine("Dev_RDStatusCode:" + response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
                 Response r = JsonConvert.DeserializeObject<Response>(result);
@@ -406,7 +358,6 @@ namespace Fourplaces
                 MediaFile file;
                 if (camera)
                 {
-                    Console.WriteLine("AHAHAHAHAHAHAHHAHAH");
                     file = await CrossMedia.Current.TakePhotoAsync(pictureMediaOptions);
                 }
                 else

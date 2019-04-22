@@ -17,7 +17,6 @@ namespace Fourplaces.Modele
         {
             get
             {
-                Console.WriteLine("\nRestServiceSingl\n");
                 if (singletonRS == null)
                 {
                     singletonRS = new RestService();

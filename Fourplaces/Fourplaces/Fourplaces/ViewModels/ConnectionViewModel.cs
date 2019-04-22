@@ -17,9 +17,10 @@ namespace Fourplaces.ViewModels
 
         public ConnectionViewModel()
         {
-
-            Login = "test@test.com";
-            Password = "Test";
+            Login = "";
+            Password = "";
+            /*Login = "test@test.com";
+            Password = "Test";*/
         }
 
         public String Login { get; set; }
@@ -48,17 +49,24 @@ namespace Fourplaces.ViewModels
 
         public async void Connection()
         {
-
-            lr = await RestServiceSingleton.SingletonRS.ConnectionDataAsync(Login, Password);
-            if (lr != null)
+            if(!String.IsNullOrEmpty(Login) && !String.IsNullOrEmpty(Password))
             {
-                LoginResultSingleton.SingletonLR = lr;
-                await NavigationService.PopAsync();
+                lr = await RestServiceSingleton.SingletonRS.ConnectionDataAsync(Login, Password);
+                if (lr != null)
+                {
+                    LoginResultSingleton.SingletonLR = lr;
+                    await NavigationService.PopAsync();
+                }
+                else
+                {
+                    ErrorLabel = "Wrong email or password";
+                }
             }
             else
             {
-                ErrorLabel = "Wrong email or password";
+                ErrorLabel = "All fields must be filled";
             }
+            
         }
 
         public override Task OnResume()

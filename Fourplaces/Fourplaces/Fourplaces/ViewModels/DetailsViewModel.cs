@@ -48,7 +48,6 @@ namespace Fourplaces.ViewModels
             }
             set
             {
-                Console.WriteLine("SETIDDD:" + value.Id);
                 SetProperty(ref placeSummary, value);
             }
         }
@@ -137,7 +136,6 @@ namespace Fourplaces.ViewModels
         public override Task OnResume()
         {
             Com = "";
-            Console.WriteLine("PlaceSummary : " + PlaceSummary);
             Task t = FindPlaceItem(PlaceSummary.Id);
             if (LoginResultSingleton.SingletonLR != null)
             {
@@ -152,14 +150,10 @@ namespace Fourplaces.ViewModels
 
         private async Task FindPlaceItem(int id)
         {
-            Console.WriteLine("Dev_FPI");
 
             Place = await RestServiceSingleton.SingletonRS.PlaceItemDataAsync(id);
             CreateMap();
             await getImage();
-
-            Console.WriteLine("Dev_IDResponse:" + Place.Id);
-
 
         }
 
@@ -187,7 +181,6 @@ namespace Fourplaces.ViewModels
 
         public async Task getImage()
         {
-            Console.WriteLine("Dev_getImage");
             ImagePlace = await RestServiceSingleton.SingletonRS.GetRequestImage(Place.ImageId);
         }
 
@@ -200,10 +193,6 @@ namespace Fourplaces.ViewModels
                     await RestServiceSingleton.SingletonRS.SendCommentDataAsync(Place.Id, Com, LoginResultSingleton.SingletonLR);
                     await OnResume();
                 }
-            }
-            else
-            {
-                Console.WriteLine("Dev_ACPasEncoreConnecte:");
             }
 
         }
