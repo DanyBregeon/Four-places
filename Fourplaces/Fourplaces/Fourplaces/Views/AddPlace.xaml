@@ -14,6 +14,7 @@
             <ImageButton Source="{Binding Image}" WidthRequest="200" HeightRequest="200" Command="{Binding CmdPicture}" />
             <Entry Text="{Binding Nom}" Placeholder="place name" />
             <Entry Text="{Binding Description}" Placeholder="description" />
+            <Label Text="Position : (leave empty for your current position)" FontAttributes="Bold"/>
             <Entry Text="{Binding Latitude}" Placeholder="longitude" />
             <Entry Text="{Binding Longitude}" Placeholder="longitude" />
             <StackLayout Orientation="Horizontal">
