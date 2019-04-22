@@ -15,7 +15,7 @@
             <Entry Text="{Binding Nom}" Placeholder="place name" />
             <Entry Text="{Binding Description}" Placeholder="description" />
             <Label Text="Position : (leave empty for your current position)" FontAttributes="Bold"/>
-            <Entry Text="{Binding Latitude}" Placeholder="longitude" />
+            <Entry Text="{Binding Latitude}" Placeholder="latitude" />
             <Entry Text="{Binding Longitude}" Placeholder="longitude" />
             <StackLayout Orientation="Horizontal">
                 <Button Text="Send" Command="{Binding CmdAdd}"/>
